@@ -1,0 +1,39 @@
+@url = http://localhost:4400
+
+GET {{url}}/tweets
+
+###
+GET {{url}}/tweets/31
+
+###
+POST {{url}}/tweets
+Content-Type: application/json
+
+{
+    "tweet":"TEST from API",
+    "tweet_img":"image6.jpg"
+}
+
+###
+POST {{url}}/upload
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+    
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_fromC"; filename="image6.jpg" 
+Content-Type: image/png
+
+< ./image6.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+DELETE {{url}}/tweets/42
+
+###
+PUT {{url}}/tweets
+Content-Type: application/json
+
+{
+    "tweetID":"47",
+    "tweet":"Edit from API",
+    "tweet_img":"image9.jpg"
+}
